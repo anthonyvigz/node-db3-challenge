@@ -11,3 +11,21 @@
 ### (Stretch)  Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 9 records.
 
 ### (Stretch) Display OrderID and a  column called ItemCount that shows the total number of products placed on the order. Shows 196 records. 
+
+SELECT ProductName, CategoryName FROM Products AS P
+JOIN Categories AS C
+ON P.CategoryID = C.CategoryID;
+
+SELECT OrderID, ShipperName FROM Orders AS O
+JOIN Shippers AS S ON O.ShipperID = S.ShipperID
+WHERE OrderDate < '1997-01-09';
+
+SELECT ProductName, Quantity FROM OrderDetails AS O
+JOIN Products AS P
+ON O.ProductID = P.ProductID
+WHERE OrderID = 10251
+ORDER BY ProductName;
+
+SELECT OrderID, CustomerName, LastName FROM Orders AS O
+JOIN Customers AS C ON O.CustomerID = C.CustomerID
+JOIN Employees AS E ON O.EmployeeID = E.EmployeeID;
